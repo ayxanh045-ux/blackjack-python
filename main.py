@@ -31,22 +31,23 @@ while game :
             game = False
     else:
         game = False
-while total_dealer < 17:
-    dealer_card.append(random.choice(cards))
-    total_dealer = sum(dealer_card)
-    if 11 in dealer_card and total_dealer > 21:
-        dealer_card.remove(11)
-        dealer_card.append(1)
+if total <= 21:
+    while total_dealer < 17:
+        dealer_card.append(random.choice(cards))
         total_dealer = sum(dealer_card)
-print("Dealer cards:", dealer_card)
-print("Dealer total:", total_dealer)
-if total_dealer == 21:
-    print("dealer wins!")
-elif total_dealer > 21:
-    print("You win! Dealer busted.")
-elif total_dealer > total:
-    print("dealer wins!")
-elif total > total_dealer:
-    print("you win!")
-elif total_dealer == total:
-    print("Draw!")
+        if 11 in dealer_card and total_dealer > 21:
+            dealer_card.remove(11)
+            dealer_card.append(1)
+            total_dealer = sum(dealer_card)
+    print("Dealer cards:", dealer_card)
+    print("Dealer total:", total_dealer)
+    if total_dealer == 21:
+        print("dealer wins!")
+    elif total_dealer > 21:
+        print("You win! Dealer busted.")
+    elif total_dealer > total:
+        print("dealer wins!")
+    elif total > total_dealer:
+        print("you win!")
+    elif total_dealer == total:
+        print("Draw!")
